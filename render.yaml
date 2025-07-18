@@ -2,9 +2,11 @@ services:
   - type: web
     name: bhartiyam-frontend
     env: static
-    buildCommand: npm install && npm run build
     staticPublishPath: dist
+    buildCommand: npm run build
+    pullRequestPreviewsEnabled: false
+
     routes:
       - type: rewrite
-        source: /.*       # This handles refresh in SPA like React
+        source: /.*
         destination: /index.html
