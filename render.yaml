@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bhartiyam-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /.*        # Catch-all to handle refresh on routes like /login
+        destination: /index.html
